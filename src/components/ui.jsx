@@ -157,11 +157,30 @@ export function Btn({ children, to, href, className = "", style }) {
   );
 }
 
+export function ArrowCircle({ size = 20 }) {
+  return <img src="/assets/ic-arrow.svg" alt="" width={size} height={size} aria-hidden="true" />;
+}
+
+export function ProjectCard({ p, ratio = "548/362", eager = false }) {
+  return (
+    <Link to={`/projects/${p.slug}`} className="pcard">
+      <div className="pcard-img" style={{ aspectRatio: ratio }}>
+        <img src={p.img} alt={p.title} loading={eager ? "eager" : "lazy"} />
+      </div>
+      <span className="go"><ArrowCircle size={20} /></span>
+    </Link>
+  );
+}
+
 export function Reveal({ children, delay = 0, className = "", as: Tag = "div", style, ...rest }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (el.getBoundingClientRect().top < window.innerHeight - 40) {
+      el.classList.add("is-in");
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -186,16 +205,16 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div", s
 /* section header with pill + title + subtitle */
 export function SectionHead({ pill, title, sub, center = true }) {
   return (
-    <div className={center ? "whyme-head" : ""} style={center ? {} : { textAlign: "left" }}>
-      <Reveal className="kicker" style={center ? {} : { justifyContent: "flex-start" }}>
+    <div className={center ? "head-center" : ""}>
+      <Reveal className={`kicker ${center ? "center" : ""}`}>
         <Pill>{pill}</Pill>
       </Reveal>
       <Reveal delay={80}>
-        <h2 className="h2" style={center ? {} : { textAlign: "left" }}>{title}</h2>
+        <h2 className="h2">{title}</h2>
       </Reveal>
       {sub && (
         <Reveal delay={160}>
-          <p className="sub" style={center ? {} : { textAlign: "left", marginLeft: 0 }}>{sub}</p>
+          <p className="sub">{sub}</p>
         </Reveal>
       )}
     </div>

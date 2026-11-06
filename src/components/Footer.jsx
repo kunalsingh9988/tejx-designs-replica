@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 import { Pill, Btn, Reveal, SocialIcon } from "./ui.jsx";
+import { footSocials } from "../data.js";
 
 export function Cta() {
   return (
-    <section className="section" id="connect" style={{ paddingBottom: 0 }}>
+    <section className="panel section-pad" id="connect">
       <div className="shell">
         <Reveal className="cta-card">
           <div className="cta-left">
             <Pill>Let's Connect</Pill>
-            <h2 className="h2">
+            <h2 className="h2" style={{ marginTop: 22 }}>
               Let's Grow <span className="dim">Together</span>
             </h2>
-            <Btn to="/projects">See All Projects</Btn>
+            <Btn to="/projects" style={{ marginTop: 34 }}>See All Projects</Btn>
           </div>
           <div className="cta-logo-card">
-            <img src="/assets/cta-banner.jpg" alt="TEJ X" />
+            <img src="/assets/cta-logo.png" alt="TEJ X" loading="lazy" />
           </div>
         </Reveal>
       </div>
@@ -30,34 +31,28 @@ const footLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
-const socials = [
-  { icon: "linkedin", href: "https://www.linkedin.com/in/mani-teja-pithani-934618225/", label: "LinkedIn" },
-  { icon: "instagram", href: "https://www.instagram.com/_maniteja_pithani_/", label: "Instagram" },
-  { icon: "behance", href: "https://www.behance.net/manitejapithani1", label: "Behance" },
-];
-
 export default function Footer() {
   return (
     <footer>
       <div className="shell">
-        <div className="foot-top">
-          <img src="/assets/tejx-logo-footer.png" alt="TEJ X" />
-          <div className="foot-socials">
-            {socials.map((s) => (
-              <a key={s.icon} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}>
-                <SocialIcon name={s.icon} size={20} />
-              </a>
-            ))}
-          </div>
-        </div>
+        <Link to="/" className="foot-logo" aria-label="TEJ X home">
+          <img src="/assets/nav-logo.png" alt="TEJ X" />
+        </Link>
         <nav className="foot-links" aria-label="Footer">
           {footLinks.map((l) => (
             <Link key={l.label} to={l.to}>{l.label}</Link>
           ))}
         </nav>
+        <div className="foot-socials">
+          {footSocials.map((s) => (
+            <a key={s.icon} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}>
+              <SocialIcon name={s.icon} size={18} />
+            </a>
+          ))}
+        </div>
         <div className="foot-bottom">
           <span>© 2026 TEJXDESIGNS</span>
-          <a href="https://tejxdesigns.com" target="_blank" rel="noreferrer">Made by Mani teja</a>
+          <a className="made" href="https://tejxdesigns.com" target="_blank" rel="noreferrer">Made by Mani teja</a>
         </div>
       </div>
     </footer>

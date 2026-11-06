@@ -11,8 +11,8 @@ export default function Contact() {
   };
   return (
     <>
-      <section className="page-hero" style={{ paddingBottom: 0 }}>
-        <div className="shell contact-grid" style={{ marginTop: 0 }}>
+      <section className="panel page-hero" style={{ marginTop: 0, paddingBottom: 0 }}>
+        <div className="shell contact-grid" style={{ marginTop: 0, paddingBottom: 80 }}>
           <div className="contact-left">
             <Reveal><Pill>Let's Connect</Pill></Reveal>
             <Reveal delay={90}>

@@ -1,20 +1,16 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { Icon, SocialIcon, Pill, Btn, Reveal } from "../components/ui.jsx";
+import { Pill, Btn, Reveal, ArrowCircle, ProjectCard, SectionHead } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 import {
-  projects, steps, services, tagRows, whyPairs, brands, faqs, skills, marqueeImages,
+  projects, steps, services, tagRows, whyPairs, brands, faqs, skills, xp, socials,
+  svcPairs, svcPairs2,
 } from "../data.js";
 
 /* ================= HERO ================= */
 
 function CursorGlyph({ className }) {
-  return (
-    <svg className={`cursor ${className}`} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M3 2l8.4 18.4 2.1-7.9L21 10.4 3 2z" fill="#0a0a0a" stroke="#fff" strokeWidth="1.4" />
-    </svg>
-  );
+  return <img src="/assets/ic-cursor.svg" alt="" className={`cursor ${className}`} aria-hidden="true" />;
 }
 
 function Hero() {
@@ -22,7 +18,7 @@ function Hero() {
   return (
     <header className="hero" id="hero-section">
       <div className="hero-media">
-        <video autoPlay muted loop playsInline preload="metadata">
+        <video autoPlay muted loop playsInline preload="metadata" poster="/assets/hero-poster.png">
           <source src="/assets/hero-bg.mp4" type="video/mp4" />
         </video>
       </div>
@@ -42,18 +38,14 @@ function Hero() {
         <Reveal>
           <Pill>UI/UX &amp; Graphic Designer</Pill>
         </Reveal>
-        <div className="hero-title-row">
-          <Reveal delay={90}>
-            <h1>
-              Mani Teja <span className="dim">Pithani</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <Link to="/projects" className="hero-arrow" aria-label="Go to projects">
-              <Icon name="arrow" size={26} sw={1.6} />
+        <Reveal delay={90}>
+          <h1>
+            Mani Teja <span className="dim">Pithani</span>
+            <Link to="/projects" className="arrow-circle" aria-label="Go to projects">
+              <ArrowCircle size={20} />
             </Link>
-          </Reveal>
-        </div>
+          </h1>
+        </Reveal>
         <Reveal delay={260}>
           <p className="hero-sub">
             A designer who blends creativity with strategy to craft intuitive
@@ -65,15 +57,13 @@ function Hero() {
         </Reveal>
         <div className="hero-grid">
           {cards.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <Link to="/projects" className="pcard" style={{ display: "block" }}>
-                <div className="pcard-img" style={{ aspectRatio: i < 2 ? "564/283" : "562/345" }}>
-                  <img src={p.img} alt={p.title} loading={i < 2 ? "eager" : "lazy"} />
-                </div>
-                <span className="go"><Icon name="arrow" size={22} sw={1.7} /></span>
-              </Link>
+            <Reveal key={p.slug} delay={i * 90}>
+              <ProjectCard p={p} ratio="538/320" eager={i < 2} />
             </Reveal>
           ))}
+        </div>
+        <div className="chev hero-more" aria-hidden="true">
+          <img src="/assets/ic-chev.svg" alt="" />
         </div>
       </div>
     </header>
@@ -82,30 +72,28 @@ function Hero() {
 
 /* ================= ABOUT ================= */
 
-const aboutSocials = [
-  { icon: "x", href: "https://x.com/home", label: "X" },
-  { icon: "instagram", href: "https://www.instagram.com/", label: "Instagram" },
-  { icon: "dribbble", href: "https://dribbble.com/", label: "Dribbble" },
-];
-
 function About() {
   return (
-    <section className="section" id="profile" style={{ background: "var(--bg-2)" }}>
+    <section className="panel section-pad" id="profile">
       <div className="shell">
-        <Reveal className="kicker"><Pill>Expert Designer</Pill></Reveal>
-        <Reveal delay={80}><h2 className="h2">Mani Teja Pithani, <span className="dim">Your Designer</span></h2></Reveal>
-        <Reveal delay={150}><p className="sub">Brief initial presentation of myself and my previous experiences.</p></Reveal>
+        <SectionHead
+          pill="Expert Designer"
+          title={<>Mani Teja Pithani, <span className="dim">Your Designer</span></>}
+          sub="Brief initial presentation of myself and my previous experiences."
+        />
         <div className="about-grid">
           <Reveal className="card about-photo">
-            <div className="img"><img src="/assets/portrait.jpg" alt="Mani Teja Pithani" loading="lazy" /></div>
+            <div className="imgwrap">
+              <img src="/assets/portrait.png" alt="Mani Teja Pithani at his desk" loading="lazy" />
+              <span className="avail-badge"><span className="gdot" />Available for work</span>
+            </div>
             <div className="about-id">
-              <span className="avail"><span className="gdot" />Available for work</span>
-              <h4 style={{ marginTop: 12 }}>Hello I am Mani teja Pithani</h4>
+              <h4>Hello I am Mani teja Pithani</h4>
               <p>UI/UX &amp; Graphic Designer Based in Hyderabad.</p>
               <div className="about-socials">
-                {aboutSocials.map((s) => (
+                {socials.map((s) => (
                   <a key={s.icon} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}>
-                    <SocialIcon name={s.icon} size={17} />
+                    <img src={`/assets/soc-${s.icon === "x" ? "x" : s.icon === "instagram" ? "ig" : "dr"}.svg`} alt="" aria-hidden="true" />
                   </a>
                 ))}
               </div>
@@ -122,12 +110,11 @@ function About() {
               {skills.map((s) => <span key={s}>{s}</span>)}
             </div>
             <div className="xp">
-              <div className="xp-row">
-                <b>Ui/UX Designer</b><span>CarieerPedia</span><i>09-24 to 03-25</i>
-              </div>
-              <div className="xp-row">
-                <b>Ui/UX Designer</b><span>CustomFurnish</span><i>05-2025-Present</i>
-              </div>
+              {xp.map((x) => (
+                <div className="xp-row" key={x.org}>
+                  <b>{x.role}</b><span>{x.org}</span><i>{x.when}</i>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -140,16 +127,18 @@ function About() {
 
 function Process() {
   return (
-    <section className="section" id="process">
+    <section className="panel section-pad" id="process">
       <div className="shell">
-        <Reveal className="kicker"><Pill>How it works</Pill></Reveal>
-        <Reveal delay={80}><h2 className="h2">Process <span className="dim">Is Everything</span></h2></Reveal>
-        <Reveal delay={150}><p className="sub">Simple, streamlined process is what get's you results</p></Reveal>
+        <SectionHead
+          pill="How it works"
+          title={<>Process <span className="dim">Is Everything</span></>}
+          sub="Simple, streamlined process is what's get's you results"
+        />
         <div className="steps">
           {steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 90} className="step-card">
               <span className="num">{i + 1}</span>
-              <span className="ico"><Icon name={s.icon} size={20} /></span>
+              <span className="ico"><img src={s.icon} alt="" aria-hidden="true" /></span>
               <h4>{s.title}</h4>
               <p>{s.desc}</p>
               <span className="step-tag">Step {i + 1}</span>
@@ -158,7 +147,7 @@ function Process() {
         </div>
         <Reveal className="step-banner" delay={100}>
           <div className="t">
-            <Pill>I am with you in every step</Pill>
+            <b>I am with you in every step</b>
             <small>alongside you at each step for seamless experience</small>
           </div>
           <Btn to="/projects">See All Projects</Btn>
@@ -170,49 +159,58 @@ function Process() {
 
 /* ================= SERVICES ================= */
 
-function Services() {
+function SvcCard({ s, delay = 0 }) {
   return (
-    <section className="section" id="services" style={{ background: "var(--bg-2)" }}>
+    <Reveal delay={delay} className="svc-card">
+      <h4><img src={s.icon} alt="" aria-hidden="true" />{s.title}</h4>
+      <p>{s.desc}</p>
+      {s.img && <div className="svc-img"><img src={s.img} alt={s.title} loading="lazy" /></div>}
+    </Reveal>
+  );
+}
+
+function Services() {
+  const S = (t) => services.find((s) => s.title === t);
+  const seq = [
+    <SvcCard key="w" s={S("Website Design")} />,
+    <SvcCard key="g" s={S("Graphic Design")} delay={90} />,
+    <Reveal key="p1" className="svc-pair">
+      <img src={svcPairs[0]} alt="Brand creative work" loading="lazy" />
+      <img src={svcPairs[1]} alt="Campaign creative work" loading="lazy" />
+    </Reveal>,
+    <SvcCard key="b" s={S("Brand Identity Design")} />,
+    <SvcCard key="pk" s={S("Packaging Design")} delay={90} />,
+    <SvcCard key="l" s={S("Logo Design")} />,
+    <SvcCard key="f" s={S("Framer Design")} delay={90} />,
+    <Reveal key="p2" className="svc-pair" delay={60}>
+      <img src={svcPairs2[0]} alt="Landing page design" loading="lazy" />
+      <img src={svcPairs2[1]} alt="Marketing website design" loading="lazy" />
+    </Reveal>,
+    <SvcCard key="sm" s={S("Social Media Design")} />,
+    <SvcCard key="ux" s={S("UX Research")} delay={90} />,
+  ];
+  return (
+    <section className="panel section-pad" id="services">
       <div className="shell">
-        <Reveal className="kicker"><Pill>Design services</Pill></Reveal>
-        <Reveal delay={80}><h2 className="h2">Design <span className="dim">Services</span></h2></Reveal>
-        <Reveal delay={150}><p className="sub">Explore a suite of design services to elevate your brand.</p></Reveal>
-        <div className="svc-grid">
-          {services.slice(0, 4).map((s, i) => (
-            <Reveal key={s.title} delay={(i % 2) * 90} className="svc-card">
-              <h4><Icon name={s.icon} size={20} />{s.title}</h4>
-              <p>{s.desc}</p>
-              {s.img && <div className="svc-img"><img src={s.img} alt={s.title} loading="lazy" /></div>}
-            </Reveal>
+        <SectionHead
+          center={false}
+          pill="Design services"
+          title={<>Design <span className="dim">Services</span></>}
+          sub="Explore a suite of design services to elevate your brand."
+        />
+        <div className="svc-grid">{seq}</div>
+        <div className="tag-marq" aria-hidden="true">
+          {tagRows.map((row, r) => (
+            <div className={`track ${r ? "rev" : ""}`} key={r}>
+              {[...row, ...row, ...row].map((chip, i) => (
+                <span className="tag-chip" key={i}>
+                  <img src={chip.i} alt="" aria-hidden="true" />
+                  {chip.t}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
-        <Reveal className="img-marquee" delay={60}>
-          <div className="track">
-            {[...marqueeImages, ...marqueeImages].map((src, i) => (
-              <img key={i} src={src} alt="" loading="lazy" />
-            ))}
-          </div>
-        </Reveal>
-        <div className="svc-grid" style={{ marginTop: 22 }}>
-          {services.slice(4).map((s, i) => (
-            <Reveal key={s.title} delay={(i % 2) * 90} className="svc-card">
-              <h4><Icon name={s.icon} size={20} />{s.title}</h4>
-              <p>{s.desc}</p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-      <div className="tag-marq" aria-hidden="true">
-        {tagRows.map((row, r) => (
-          <div className={`track ${r ? "rev" : ""}`} key={r}>
-            {[...row, ...row].map((t, i) => (
-              <span className="tag-chip" key={i}>
-                <Icon name={i % 3 === 0 ? "monitor" : i % 3 === 1 ? "pen" : "image"} size={16} />
-                {t}
-              </span>
-            ))}
-          </div>
-        ))}
       </div>
     </section>
   );
@@ -223,23 +221,27 @@ function Services() {
 function Recent() {
   const cards = [projects[0], projects[3], projects[1], projects[2]];
   return (
-    <section className="section" id="recent">
+    <section className="panel section-pad" id="recent">
       <div className="shell">
         <div className="recent-head">
           <div>
-            <Reveal className="kicker" style={{ justifyContent: "flex-start" }}><Pill>Recent Projects</Pill></Reveal>
-            <Reveal delay={80}><h2 className="h2">Recent <span className="dim">Designs</span></h2></Reveal>
+            <Reveal className="kicker"><Pill>Recent Projects</Pill></Reveal>
+            <Reveal delay={80}>
+              <h2 className="h2">
+                Recent <span className="dim">Designs</span>
+                <Link to="/projects" className="arrow-circle" aria-label="Go to projects">
+                  <ArrowCircle size={20} />
+                </Link>
+              </h2>
+            </Reveal>
             <Reveal delay={150}><p className="sub">Showcase of some of my recent sleek websites</p></Reveal>
           </div>
           <Reveal delay={180}><Btn to="/projects">See All Projects</Btn></Reveal>
         </div>
-        <div className="svc-grid">
+        <div className="svc-grid" style={{ marginTop: 44 }}>
           {cards.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 2) * 90}>
-              <Link to="/projects" className="pcard" style={{ aspectRatio: "498/303" }}>
-                <div className="pcard-img"><img src={p.img} alt={p.title} loading="lazy" /></div>
-                <span className="go"><Icon name="arrow" size={22} sw={1.7} /></span>
-              </Link>
+            <Reveal key={p.slug} delay={(i % 2) * 90}>
+              <ProjectCard p={p} ratio="498/303" />
             </Reveal>
           ))}
         </div>
@@ -248,47 +250,31 @@ function Recent() {
   );
 }
 
-/* ================= WHY ME (scroll-driven pair swap) ================= */
+/* ================= WHY ME (stacked split cards) ================= */
 
 function WhyMe() {
-  const ref = useRef(null);
-  const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const i = Math.min(whyPairs.length - 1, Math.max(0, Math.floor(v * whyPairs.length)));
-    setActive(i);
-  });
   return (
-    <section id="why" ref={ref} style={{ height: `${whyPairs.length * 90 + 60}vh`, position: "relative", background: "var(--bg-2)" }}>
-      <div className="why-pin shell">
-        <div className="whyme-head">
-          <Reveal className="kicker"><Pill>Why choose me</Pill></Reveal>
-          <Reveal delay={80}><h2 className="h2">Why me as <span className="dim">Design Partner</span></h2></Reveal>
-          <Reveal delay={150}><p className="sub">Why Partner with Me for the Design Excellence</p></Reveal>
-        </div>
-        <div className="why-pair" style={{ minHeight: 200 }}>
+    <section className="panel section-pad" id="why">
+      <div className="shell">
+        <SectionHead
+          pill="Why choose me"
+          title={<>Why me as <span className="dim">Design Partner</span></>}
+          sub="Why Partner with Me for the Design Excellence"
+        />
+        <div className="why-list">
           {whyPairs.map((pair, i) => (
-            <motion.div
-              key={pair.good.t}
-              initial={false}
-              animate={{
-                opacity: i === active ? 1 : 0,
-                y: i === active ? 0 : i < active ? -26 : 26,
-              }}
-              transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
-              style={{ gridColumn: "1 / -1", gridRow: "1 / 2", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22, pointerEvents: i === active ? "auto" : "none" }}
-            >
-              <div className="why-card good">
-                <span className="mark"><Icon name="check" size={16} sw={2.2} /></span>
+            <Reveal key={pair.good.t} delay={i * 70} className="why-row">
+              <div className="why-half good">
+                <span className="mark"><img src="/assets/ic-check.svg" alt="" aria-hidden="true" /></span>
                 <h4>{pair.good.t}</h4>
                 <p>{pair.good.d}</p>
               </div>
-              <div className="why-card bad">
-                <span className="mark"><Icon name="x" size={15} sw={2.2} /></span>
+              <div className="why-half bad">
+                <span className="mark"><img src="/assets/ic-x.svg" alt="" aria-hidden="true" /></span>
                 <h4>{pair.bad.t}</h4>
                 <p>{pair.bad.d}</p>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -299,12 +285,11 @@ function WhyMe() {
 /* ================= TRUSTED / BRANDS ================= */
 
 function Trusted() {
-  const list = [...brands, ...brands];
   return (
-    <section className="section" id="testimonials">
-      <div className="shell trusted">
+    <section className="panel section-pad" id="testimonials">
+      <div className="shell trusted-grid">
         <div className="trusted-left">
-          <Reveal className="kicker" style={{ justifyContent: "flex-start" }}><Pill>Brands I worked for</Pill></Reveal>
+          <Reveal className="kicker"><Pill>Brands I worked for</Pill></Reveal>
           <Reveal delay={80}><h2 className="h2">Trusted by <span className="dim">Leading Brands</span></h2></Reveal>
           <Reveal delay={150}>
             <p className="sub">Delivering user-focused design solutions for businesses across different industries.</p>
@@ -314,21 +299,22 @@ function Trusted() {
             <div className="stat"><b>20+</b><span>Projects Completed</span></div>
             <div className="stat wide"><b>1.5+ Years</b><span>Experience in Design</span></div>
           </Reveal>
-          <Reveal delay={240}><Btn to="/projects">See All Projects</Btn></Reveal>
+          <Reveal delay={240}>
+            <hr className="trusted-hr" />
+            <Btn to="/projects">See All Projects</Btn>
+          </Reveal>
         </div>
-        <div className="brands-scroll">
-          <div className="brands-track">
-            {list.map((b, i) => (
-              <div className="brand-card" key={i}>
-                <div className="brand-top">
-                  <span className="brand-logo"><img src={b.logo} alt={`${b.name} logo`} loading="lazy" /></span>
-                  <div><h4>{b.name}</h4><span>{b.tag}</span></div>
-                </div>
-                <hr />
-                <p>{b.desc}</p>
+        <div className="brand-list">
+          {brands.map((b, i) => (
+            <Reveal key={b.name} delay={i * 50} className="brand-card" style={{ "--glow": b.glow }}>
+              <div className="brand-top">
+                <span className="brand-logo"><img src={b.logo} alt={`${b.name} logo`} loading="lazy" /></span>
+                <div><h4>{b.name}</h4><span>{b.tag}</span></div>
               </div>
-            ))}
-          </div>
+              <hr />
+              <p>{b.desc}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -340,17 +326,20 @@ function Trusted() {
 function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="section" id="faq" style={{ background: "var(--bg-2)" }}>
+    <section className="panel" id="faq">
       <div className="shell">
-        <div className="card" style={{ padding: "60px 56px" }}>
+        <div className="faq-inner">
           <div className="faq-grid">
             <div className="faq-left">
-              <Reveal className="kicker"><Pill>FAQ Section</Pill></Reveal>
-              <Reveal delay={80}><h2 className="h2">Questions, <span className="dim">Answers</span></h2></Reveal>
-              <Reveal delay={150}><p className="sub">Get quick answers to your most pressing questions</p></Reveal>
+              <SectionHead
+                center={false}
+                pill="FAQ Section"
+                title={<>Questions, <span className="dim">Answers</span></>}
+                sub="Get quick answers to your most pressing questions"
+              />
               <Reveal delay={200} className="faq-profile">
                 <div className="head">
-                  <img src="/assets/avatar.jpg" alt="Mani Teja" />
+                  <img src="/assets/avatar.png" alt="Mani Teja" />
                   <div><b>Mani Teja</b><span>UI/UX &amp; Graphic Designer</span></div>
                 </div>
                 <p>
