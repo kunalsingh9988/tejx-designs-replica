@@ -10,10 +10,10 @@ export default function Projects() {
       <section className="panel section-pad" style={{ marginTop: 0 }}>
         <div className="shell">
           <div className="page-hero" style={{ paddingTop: 90 }}>
-            <Reveal className="kicker"><Pill>Recent Projects</Pill></Reveal>
+            <Reveal className="kicker"><Pill>Selected Work</Pill></Reveal>
             <Reveal delay={80}>
               <h1>
-                Elevating Brands <span className="dim">to Drive<br />Success and Impact</span>
+                Products I've Designed <span className="dim">&amp; Shipped<br />End-to-End</span>
               </h1>
             </Reveal>
           </div>

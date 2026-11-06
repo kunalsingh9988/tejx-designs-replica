@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Pill, Btn, Reveal, ArrowCircle, ProjectCard, SectionHead } from "../components/ui.jsx";
+import { Pill, Btn, Reveal, ArrowCircle, ProjectCard, SectionHead, SocialIcon } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 import {
   projects, steps, services, tagRows, whyPairs, brands, faqs, skills, xp, socials,
-  svcPairs, svcPairs2,
+  svcPairs, svcPairs2, heroQuotes,
 } from "../data.js";
 
 /* ================= HERO ================= */
@@ -24,23 +24,23 @@ function Hero() {
       </div>
       <div className="hero-quotes" aria-hidden="true">
         <div className="quote-card q1">
-          " Working with him was a game changer! "
-          <span className="who">-Senthil</span>
+          {heroQuotes[0].q}
+          <span className="who">{heroQuotes[0].who}</span>
         </div>
         <div className="quote-card q2">
-          " We Increased our conversions by 200%"
-          <span className="who">-vijaynb</span>
+          {heroQuotes[1].q}
+          <span className="who">{heroQuotes[1].who}</span>
         </div>
         <CursorGlyph className="c1" />
         <CursorGlyph className="c2" />
       </div>
       <div className="shell hero-inner">
         <Reveal>
-          <Pill>UI/UX &amp; Graphic Designer</Pill>
+          <Pill>UX Designer · Project Manager</Pill>
         </Reveal>
         <Reveal delay={90}>
           <h1>
-            Mani Teja <span className="dim">Pithani</span>
+            Kunal <span className="dim">Singh</span>
             <Link to="/projects" className="arrow-circle" aria-label="Go to projects">
               <ArrowCircle size={20} />
             </Link>
@@ -48,12 +48,13 @@ function Hero() {
         </Reveal>
         <Reveal delay={260}>
           <p className="hero-sub">
-            A designer who blends creativity with strategy to craft intuitive
-            user experiences and compelling brand visuals.
+            I design intuitive digital products and manage them end-to-end —
+            80+ projects shipped over 2.5+ years, on time and on brief.
           </p>
         </Reveal>
-        <Reveal delay={340}>
+        <Reveal delay={340} className="hero-actions">
           <Btn to="/projects">See All Projects</Btn>
+          <Btn href="/assets/resume.pdf" className="ghost">Resume ↓</Btn>
         </Reveal>
         <div className="hero-grid">
           {cards.map((p, i) => (
@@ -77,23 +78,23 @@ function About() {
     <section className="panel section-pad" id="profile">
       <div className="shell">
         <SectionHead
-          pill="Expert Designer"
-          title={<>Mani Teja Pithani, <span className="dim">Your Designer</span></>}
-          sub="Brief initial presentation of myself and my previous experiences."
+          pill="Designer & Project Manager"
+          title={<>Kunal Singh, <span className="dim">at your service</span></>}
+          sub="A quick intro to who I am and where I've been."
         />
         <div className="about-grid">
           <Reveal className="card about-photo">
             <div className="imgwrap">
-              <img src="/assets/portrait.png" alt="Mani Teja Pithani at his desk" loading="lazy" />
+              <img src="/assets/kunal-photo.jpg" alt="Kunal Singh" loading="lazy" />
               <span className="avail-badge"><span className="gdot" />Available for work</span>
             </div>
             <div className="about-id">
-              <h4>Hello I am Mani teja Pithani</h4>
-              <p>UI/UX &amp; Graphic Designer Based in Hyderabad.</p>
+              <h4>Hello, I am Kunal Singh</h4>
+              <p>UX Designer &amp; Project Manager based in India.</p>
               <div className="about-socials">
                 {socials.map((s) => (
                   <a key={s.icon} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}>
-                    <img src={`/assets/soc-${s.icon === "x" ? "x" : s.icon === "instagram" ? "ig" : "dr"}.svg`} alt="" aria-hidden="true" />
+                    <SocialIcon name={s.icon} size={18} />
                   </a>
                 ))}
               </div>
@@ -102,9 +103,10 @@ function About() {
           </Reveal>
           <Reveal className="card about-info" delay={120}>
             <p className="bio">
-              I'm Mani Teja Pithani, a dedicated Web Designer &amp; Graphic Designer based in the
-              vibrant city of Hyderabad, India. I specialize in creative design with seamless
-              technical execution to craft exceptional digital experiences.
+              I'm Kunal Singh — a UX designer and project manager with 2.5+ years and 80+
+              shipped projects. I take products from brief to launch: researching users,
+              mapping flows, designing interfaces, and driving delivery so nothing slips.
+              Currently designing at Riverhouse Technologies and running my own studio, Phimetric.
             </p>
             <div className="chips">
               {skills.map((s) => <span key={s}>{s}</span>)}
@@ -132,7 +134,7 @@ function Process() {
         <SectionHead
           pill="How it works"
           title={<>Process <span className="dim">Is Everything</span></>}
-          sub="Simple, streamlined process is what's get's you results"
+          sub="A clear, milestone-driven process — the same one that's shipped 80+ projects"
         />
         <div className="steps">
           {steps.map((s, i) => (
@@ -148,7 +150,7 @@ function Process() {
         <Reveal className="step-banner" delay={100}>
           <div className="t">
             <b>I am with you in every step</b>
-            <small>alongside you at each step for seamless experience</small>
+            <small>you'll always know the status, the next step, and the timeline</small>
           </div>
           <Btn to="/projects">See All Projects</Btn>
         </Reveal>
@@ -170,33 +172,32 @@ function SvcCard({ s, delay = 0 }) {
 }
 
 function Services() {
-  const S = (t) => services.find((s) => s.title === t);
   const seq = [
-    <SvcCard key="w" s={S("Website Design")} />,
-    <SvcCard key="g" s={S("Graphic Design")} delay={90} />,
+    <SvcCard key="w" s={services[0]} />,
+    <SvcCard key="g" s={services[1]} delay={90} />,
     <Reveal key="p1" className="svc-pair">
-      <img src={svcPairs[0]} alt="Brand creative work" loading="lazy" />
-      <img src={svcPairs[1]} alt="Campaign creative work" loading="lazy" />
+      <img src={svcPairs[0]} alt="Product interface design" loading="lazy" />
+      <img src={svcPairs[1]} alt="Web app design" loading="lazy" />
     </Reveal>,
-    <SvcCard key="b" s={S("Brand Identity Design")} />,
-    <SvcCard key="pk" s={S("Packaging Design")} delay={90} />,
-    <SvcCard key="l" s={S("Logo Design")} />,
-    <SvcCard key="f" s={S("Framer Design")} delay={90} />,
+    <SvcCard key="b" s={services[2]} />,
+    <SvcCard key="pk" s={services[3]} delay={90} />,
+    <SvcCard key="l" s={services[4]} />,
+    <SvcCard key="f" s={services[5]} delay={90} />,
     <Reveal key="p2" className="svc-pair" delay={60}>
-      <img src={svcPairs2[0]} alt="Landing page design" loading="lazy" />
-      <img src={svcPairs2[1]} alt="Marketing website design" loading="lazy" />
+      <img src={svcPairs2[0]} alt="Platform design" loading="lazy" />
+      <img src={svcPairs2[1]} alt="Dashboard design" loading="lazy" />
     </Reveal>,
-    <SvcCard key="sm" s={S("Social Media Design")} />,
-    <SvcCard key="ux" s={S("UX Research")} delay={90} />,
+    <SvcCard key="sm" s={services[6]} />,
+    <SvcCard key="ux" s={services[7]} delay={90} />,
   ];
   return (
     <section className="panel section-pad" id="services">
       <div className="shell">
         <SectionHead
           center={false}
-          pill="Design services"
+          pill="What I do"
           title={<>Design <span className="dim">Services</span></>}
-          sub="Explore a suite of design services to elevate your brand."
+          sub="Design and delivery services that take products from idea to launch."
         />
         <div className="svc-grid">{seq}</div>
         <div className="tag-marq" aria-hidden="true">
@@ -258,8 +259,8 @@ function WhyMe() {
       <div className="shell">
         <SectionHead
           pill="Why choose me"
-          title={<>Why me as <span className="dim">Design Partner</span></>}
-          sub="Why Partner with Me for the Design Excellence"
+          title={<>Why me as <span className="dim">your next hire</span></>}
+          sub="What you get with me — and what you risk without"
         />
         <div className="why-list">
           {whyPairs.map((pair, i) => (
@@ -289,15 +290,15 @@ function Trusted() {
     <section className="panel section-pad" id="testimonials">
       <div className="shell trusted-grid">
         <div className="trusted-left">
-          <Reveal className="kicker"><Pill>Brands I worked for</Pill></Reveal>
-          <Reveal delay={80}><h2 className="h2">Trusted by <span className="dim">Leading Brands</span></h2></Reveal>
+          <Reveal className="kicker"><Pill>Teams I've worked with</Pill></Reveal>
+          <Reveal delay={80}><h2 className="h2">Trusted by <span className="dim">Great Teams</span></h2></Reveal>
           <Reveal delay={150}>
-            <p className="sub">Delivering user-focused design solutions for businesses across different industries.</p>
+            <p className="sub">Designing and delivering for startups, studios, and product teams across industries.</p>
           </Reveal>
           <Reveal delay={200} className="stats">
-            <div className="stat"><b>10+</b><span>Brands Collabrations with</span></div>
-            <div className="stat"><b>20+</b><span>Projects Completed</span></div>
-            <div className="stat wide"><b>1.5+ Years</b><span>Experience in Design</span></div>
+            <div className="stat"><b>80+</b><span>Projects Completed</span></div>
+            <div className="stat"><b>10+</b><span>Teams &amp; Clients</span></div>
+            <div className="stat wide"><b>2.5+ Years</b><span>Designing &amp; Delivering</span></div>
           </Reveal>
           <Reveal delay={240}>
             <hr className="trusted-hr" />
@@ -308,7 +309,7 @@ function Trusted() {
           {brands.map((b, i) => (
             <Reveal key={b.name} delay={i * 50} className="brand-card" style={{ "--glow": b.glow }}>
               <div className="brand-top">
-                <span className="brand-logo"><img src={b.logo} alt={`${b.name} logo`} loading="lazy" /></span>
+                <span className="brand-logo"><span className="mono">{b.mono}</span></span>
                 <div><h4>{b.name}</h4><span>{b.tag}</span></div>
               </div>
               <hr />
@@ -339,13 +340,13 @@ function Faq() {
               />
               <Reveal delay={200} className="faq-profile">
                 <div className="head">
-                  <img src="/assets/avatar.png" alt="Mani Teja" />
-                  <div><b>Mani Teja</b><span>UI/UX &amp; Graphic Designer</span></div>
+                  <img src="/assets/kunal-avatar.jpg" alt="Kunal Singh" />
+                  <div><b>Kunal Singh</b><span>UX Designer &amp; Project Manager</span></div>
                 </div>
                 <p>
-                  Creative and detail-oriented designer focused on crafting modern digital
-                  experiences, branding, and visually engaging designs that help businesses
-                  stand out and connect with their audience.
+                  Designer and project manager with 80+ shipped projects — I take products
+                  from idea to launch with research-driven design and organized,
+                  on-time delivery.
                 </p>
                 <Btn to="/projects">View My Work</Btn>
               </Reveal>

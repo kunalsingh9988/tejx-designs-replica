@@ -150,8 +150,9 @@ export function Pill({ children }) {
 export function Btn({ children, to, href, className = "", style }) {
   const cls = `btn ${className}`;
   if (to) return <Link to={to} className={cls} style={style}>{children}</Link>;
+  const external = href?.startsWith("http") || href?.endsWith(".pdf");
   return (
-    <a href={href || "#"} className={cls} style={style} target={href?.startsWith("http") ? "_blank" : undefined} rel={href?.startsWith("http") ? "noreferrer" : undefined}>
+    <a href={href || "#"} className={cls} style={style} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
       {children}
     </a>
   );

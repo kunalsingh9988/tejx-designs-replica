@@ -23,9 +23,11 @@ export default function ProjectDetail() {
                   <p className="dsub">{para}</p>
                 </Reveal>
               ))}
-              <Reveal delay={240}>
-                <Btn href="#" className="ghost">Open Project</Btn>
-              </Reveal>
+              {project.link && (
+                <Reveal delay={240}>
+                  <Btn href={project.link} className="ghost">Open Project ↗</Btn>
+                </Reveal>
+              )}
               <Reveal delay={300} className="detail-meta">
                 <div className="m"><b>Company</b><span>{project.company}</span></div>
                 <div className="m"><b>Service Provided</b><span>{project.service}</span></div>

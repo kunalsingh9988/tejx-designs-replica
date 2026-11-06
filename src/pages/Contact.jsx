@@ -17,28 +17,29 @@ export default function Contact() {
             <Reveal><Pill>Let's Connect</Pill></Reveal>
             <Reveal delay={90}>
               <h1 className="h2" style={{ fontSize: "clamp(38px, 5vw, 56px)" }}>
-                Let's Collaborate <span className="dim">and Begin the work</span>
+                Let's Build Something <span className="dim">Great Together</span>
               </h1>
             </Reveal>
             <hr className="hr" />
             <Reveal delay={140} className="contact-stats">
-              <div className="stat"><b>10+</b><span>Collabrated Brands</span></div>
-              <div className="stat"><b>20+</b><span>Projects done</span></div>
-              <div className="stat"><b>1.5+ Years</b><span>Experince</span></div>
+              <div className="stat"><b>10+</b><span>Teams &amp; Clients</span></div>
+              <div className="stat"><b>80+</b><span>Projects Shipped</span></div>
+              <div className="stat"><b>2.5+ Years</b><span>Experience</span></div>
             </Reveal>
             <Reveal delay={200} className="contact-testi">
               <div className="head">
                 <span className="ava" aria-hidden="true" />
-                <div><b>Naveen</b><span>Sirimillets</span></div>
+                <div><b>Rohan Malhotra</b><span>Founder, AdagioVR</span></div>
               </div>
               <p>
-                Using this analytics tool has been a game-changer for our team. The
-                seamless interface and actionable insights make every decision smarter.
+                "The team delivered a clean, modern website with an impressively smooth
+                process. Communication was clear throughout, and the final outcome
+                exceeded our expectations."
               </p>
             </Reveal>
             <Reveal delay={250} className="book-bar">
-              <b>Prefer to book a call ?</b>
-              <Btn href="https://cal.com/maniteja/30min">Let's Book A Call</Btn>
+              <b>Prefer to talk directly?</b>
+              <Btn href="https://wa.me/916266750520">Chat on WhatsApp</Btn>
             </Reveal>
           </div>
           <Reveal delay={140} className="form-card" as="form" onSubmit={submit}>

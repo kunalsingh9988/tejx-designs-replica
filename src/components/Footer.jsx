@@ -15,7 +15,10 @@ export function Cta() {
             <Btn to="/projects" style={{ marginTop: 34 }}>See All Projects</Btn>
           </div>
           <div className="cta-logo-card">
-            <img src="/assets/cta-logo.png" alt="TEJ X" loading="lazy" />
+            <div className="cta-wordmark">
+              <span className="k"><img src="/assets/logo-k.png" alt="" /></span>
+              <b>KUNAL</b>
+            </div>
           </div>
         </Reveal>
       </div>
@@ -29,19 +32,25 @@ const footLinks = [
   { label: "Profile", to: "/#profile" },
   { label: "Collaborations", to: "/#testimonials" },
   { label: "Contact", to: "/contact" },
+  { label: "Resume", href: "/assets/resume.pdf" },
 ];
 
 export default function Footer() {
   return (
     <footer>
       <div className="shell">
-        <Link to="/" className="foot-logo" aria-label="TEJ X home">
-          <img src="/assets/nav-logo.png" alt="TEJ X" />
+        <Link to="/" className="foot-logo" aria-label="Kunal Singh home">
+          <span className="k"><img src="/assets/logo-k.png" alt="" /></span>
+          <span className="wordmark">KUNAL</span>
         </Link>
         <nav className="foot-links" aria-label="Footer">
-          {footLinks.map((l) => (
-            <Link key={l.label} to={l.to}>{l.label}</Link>
-          ))}
+          {footLinks.map((l) =>
+            l.href ? (
+              <a key={l.label} href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
+            ) : (
+              <Link key={l.label} to={l.to}>{l.label}</Link>
+            )
+          )}
         </nav>
         <div className="foot-socials">
           {footSocials.map((s) => (
@@ -51,8 +60,8 @@ export default function Footer() {
           ))}
         </div>
         <div className="foot-bottom">
-          <span>© 2026 TEJXDESIGNS</span>
-          <a className="made" href="https://tejxdesigns.com" target="_blank" rel="noreferrer">Made by Mani teja</a>
+          <span>© 2025 Kunal Singh</span>
+          <a className="made" href="https://www.linkedin.com/in/kunal-singh-2724571b2/" target="_blank" rel="noreferrer">Made by Kunal</a>
         </div>
       </div>
     </footer>

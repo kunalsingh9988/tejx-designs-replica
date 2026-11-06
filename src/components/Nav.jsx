@@ -7,6 +7,7 @@ const links = [
   { label: "Projects", to: "/projects" },
   { label: "Collaborations", to: "/#testimonials" },
   { label: "Contact", to: "/contact" },
+  { label: "Resume", href: "/assets/resume.pdf" },
 ];
 
 export default function Nav() {
@@ -31,15 +32,22 @@ export default function Nav() {
   return (
     <div className="nav-wrap">
       <nav className="nav" aria-label="Main">
-        <Link to="/" className="nav-logo" aria-label="TEJ X home" onClick={() => setOpen(false)}>
-          <img src="/assets/nav-logo.png" alt="TEJ X" />
+        <Link to="/" className="nav-logo" aria-label="Kunal Singh home" onClick={() => setOpen(false)}>
+          <span className="k"><img src="/assets/logo-k.png" alt="" /></span>
+          <span className="wordmark">KUNAL</span>
         </Link>
         <div className="nav-links">
-          {links.map((l) => (
-            <Link key={l.label} to={l.to} onClick={(e) => go(e, l.to)} className={isActive(l.to) ? "active" : ""}>
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) =>
+            l.href ? (
+              <a key={l.label} href={l.href} target="_blank" rel="noreferrer">
+                {l.label}
+              </a>
+            ) : (
+              <Link key={l.label} to={l.to} onClick={(e) => go(e, l.to)} className={isActive(l.to) ? "active" : ""}>
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
         <button className="nav-burger" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
           {open ? (
@@ -51,11 +59,17 @@ export default function Nav() {
           )}
         </button>
         <div className={`nav-mobile ${open ? "open" : ""}`}>
-          {links.map((l) => (
-            <Link key={l.label} to={l.to} onClick={(e) => go(e, l.to)} className={isActive(l.to) ? "active" : ""}>
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) =>
+            l.href ? (
+              <a key={l.label} href={l.href} target="_blank" rel="noreferrer">
+                {l.label}
+              </a>
+            ) : (
+              <Link key={l.label} to={l.to} onClick={(e) => go(e, l.to)} className={isActive(l.to) ? "active" : ""}>
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
       </nav>
     </div>
