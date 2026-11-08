@@ -61,7 +61,6 @@ export default function Projects() {
               <p>That's all {filtered.length} — every project designed, managed &amp; shipped end-to-end. The next one could be yours.</p>
             </Reveal>
           )}
-          <div className="chev" aria-hidden="true"><img src="/assets/ic-chev.svg" alt="" /></div>
         </div>
       </section>
       <Cta />

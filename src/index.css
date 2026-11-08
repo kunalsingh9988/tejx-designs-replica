@@ -729,10 +729,8 @@ footer { padding: 56px 0 44px; }
 .page-hero h1 { font-size: clamp(34px, 4.6vw, 64px); line-height: 1.14; margin-top: 26px; letter-spacing: -0.028em; }
 .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 60px; }
 .proj-grid .pcard { aspect-ratio: 548/362; }
-.load-more { display: flex; justify-content: center; margin: 50px 0 10px; }
+.load-more { display: flex; justify-content: center; margin: 50px 0 40px; }
 .end-note p { margin: 0; font-family: var(--font-alt); font-size: 14.5px; color: var(--muted-2); text-align: center; }
-.chev { display: flex; justify-content: center; padding: 10px 0 40px; color: var(--muted-2); }
-.chev img { width: 22px; height: 14px; }
 
 /* ---------- project detail ---------- */
 
