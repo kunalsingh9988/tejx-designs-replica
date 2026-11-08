@@ -739,6 +739,30 @@ footer { padding: 56px 0 44px; }
 .detail-left h1 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.18; letter-spacing: -0.02em; }
 .detail-left .dsub { margin-top: 22px; color: var(--muted-2); font-size: 15px; line-height: 1.8; max-width: 480px; }
 .detail-left .dsub + .dsub { margin-top: 14px; }
+.filter-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 38px; }
+.filter-btn {
+  font-family: var(--font-alt);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted-2);
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out), background 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .filter-btn:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.22); transform: translateY(-1px); }
+}
+.filter-btn:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.5); outline-offset: 3px; }
+.filter-btn.active {
+  color: var(--text);
+  background: var(--btn-grad);
+  border-color: var(--line-2);
+  box-shadow: var(--shadow-card), var(--inset-top);
+}
+
 .detail-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .detail-left .btn { margin-top: 34px; text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; padding: 15px 26px; }
 .detail-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-top: 40px; }
