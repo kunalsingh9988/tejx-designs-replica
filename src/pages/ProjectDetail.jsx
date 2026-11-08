@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { Btn, Reveal, ProjectCard } from "../components/ui.jsx";
+import { Btn, BtnIcon, Reveal, ProjectCard } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 import { projects, extraProjects } from "../data.js";
 import { clientProjects } from "../clientProjects.js";
@@ -14,6 +14,7 @@ export default function ProjectDetail() {
   if (!project) return <Navigate to="/projects" replace />;
 
   const recent = projects.filter((p) => p.slug !== slug).slice(0, 4);
+  const isBehance = project.link?.includes("behance.net");
 
   return (
     <>
@@ -29,8 +30,17 @@ export default function ProjectDetail() {
               ))}
               {(project.link || project.figma) && (
                 <Reveal delay={240} className="detail-actions">
-                  {project.link && <Btn href={project.link}>View Live Site ↗</Btn>}
-                  {project.figma && <Btn href={project.figma} className="ghost">View Figma File ↗</Btn>}
+                  {project.link && (
+                    <Btn href={project.link}>
+                      <BtnIcon name={isBehance ? "behance" : "live"} />
+                      {isBehance ? "View Case Study" : "View Live Site"} ↗
+                    </Btn>
+                  )}
+                  {project.figma && (
+                    <Btn href={project.figma} className="ghost">
+                      <BtnIcon name="figma" /> View Figma File ↗
+                    </Btn>
+                  )}
                 </Reveal>
               )}
               <Reveal delay={300} className="detail-meta">

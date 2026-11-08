@@ -136,6 +136,30 @@ export function SocialIcon({ name, size = 18 }) {
   );
 }
 
+/* ---------- link-destination icons ---------- */
+
+export function BtnIcon({ name, size = 16 }) {
+  if (name === "behance") return <SocialIcon name="behance" size={size} />;
+  if (name === "figma") {
+    return (
+      <svg viewBox="0 0 16 24" width={(size * 2) / 3} height={size} aria-hidden="true">
+        <path d="M4 8a4 4 0 0 1 0-8h4v8H4z" fill="#F24E1E" />
+        <path d="M8 0h4a4 4 0 1 1 0 8H8V0z" fill="#FF7262" />
+        <path d="M4 16a4 4 0 0 1 0-8h4v8H4z" fill="#A259FF" />
+        <circle cx="12" cy="12" r="4" fill="#1ABCFE" />
+        <path d="M0 16h8v4a4 4 0 0 1-8 0v-4z" fill="#0ACF83" />
+      </svg>
+    );
+  }
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  );
+}
+
 /* ---------- pill / button / reveal ---------- */
 
 export function Pill({ children }) {
