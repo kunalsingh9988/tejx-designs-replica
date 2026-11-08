@@ -13,6 +13,7 @@ const FILTERS = [
   { id: "figma", label: "Figma", match: (p) => !!p.figma },
   { id: "live", label: "Live Projects", match: (p) => !!p.link && !isBehance(p) },
   { id: "pm", label: "Project Manager", match: (p) => !isBehance(p) },
+  { id: "case", label: "Case Studies", match: isBehance },
 ];
 
 export default function Projects() {
