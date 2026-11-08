@@ -6,6 +6,7 @@ import {
   projects, steps, services, tagRows, whyPairs, brands, faqs, skills, xp, socials,
   svcPairs, svcPairs2, heroQuotes,
 } from "../data.js";
+import { clientProjects } from "../clientProjects.js";
 
 /* ================= HERO ================= */
 
@@ -63,9 +64,9 @@ function Hero() {
             </Reveal>
           ))}
         </div>
-        <div className="chev hero-more" aria-hidden="true">
-          <img src="/assets/ic-chev.svg" alt="" />
-        </div>
+        <Reveal delay={450} className="hero-more">
+          <Btn to="/projects">Show All ({projects.length + clientProjects.length})</Btn>
+        </Reveal>
       </div>
     </header>
   );
