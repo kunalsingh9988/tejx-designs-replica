@@ -15,6 +15,7 @@ export const clientProjects = [
     company: "The Divined Grove",
     service: "E-commerce Design · Shopify",
     link: "https://thedivinedgrove.com",
+    figma: null,
   },
   {
     slug: "my-tawa",
@@ -30,6 +31,7 @@ export const clientProjects = [
     company: "My Tawa",
     service: "E-commerce Design · Shopify",
     link: "https://mytawa.myshopify.com",
+    figma: "https://www.figma.com/design/TMeaKszlOpxKy88tvR1gAC/My-Tawa---Sherry",
   },
   {
     slug: "nutricom",
@@ -45,6 +47,7 @@ export const clientProjects = [
     company: "Nutricom",
     service: "E-commerce Design · Shopify",
     link: "https://nutricom-ctjpdlvc.myshopify.com",
+    figma: "https://www.figma.com/design/15duSjnQC9FwBu4xhoaIfV/Nutricom---Liliatse",
   },
   {
     slug: "paremmin",
@@ -60,6 +63,7 @@ export const clientProjects = [
     company: "Paremmin",
     service: "E-commerce Design · Shopify",
     link: "https://paremmin.nl",
+    figma: "https://www.figma.com/design/dnkljpS1nsZQnJTNUCP2Z7/Paremmin---Jesse",
   },
   {
     slug: "tech-home-living",
@@ -75,6 +79,7 @@ export const clientProjects = [
     company: "Tech & Home Living",
     service: "E-commerce Design · Shopify",
     link: "https://ixv6zj-xu.myshopify.com",
+    figma: "https://www.figma.com/design/CooZf9XTzPYvVjmtcHhCkd/Tech---home-living---Markgagliardi",
   },
   {
     slug: "beforedawn",
@@ -89,7 +94,8 @@ export const clientProjects = [
     ],
     company: "BeforeDawn",
     service: "Theme Design · Shopify",
-    link: "https://www.figma.com/design/3l2NamqjN4N7SiLOX0OMPT/Before-Dawn",
+    link: null,
+    figma: "https://www.figma.com/design/3l2NamqjN4N7SiLOX0OMPT/Before-Dawn",
   },
   {
     slug: "no-more-data-centers",
@@ -105,6 +111,7 @@ export const clientProjects = [
     company: "No More Data Centers",
     service: "Website Design · Merch Store",
     link: null,
+    figma: "https://www.figma.com/design/uTv73O1MB1XD8wZ6tqxDVz/NoMoreDataCenters---Dennismartinek",
   },
   {
     slug: "the-fresh-fit",
@@ -120,6 +127,7 @@ export const clientProjects = [
     company: "The Fresh Fit",
     service: "E-commerce Design · Shopify",
     link: "https://fresh-fit-apparel-4.myshopify.com",
+    figma: null,
   },
   {
     slug: "carbex-lab",
@@ -135,6 +143,7 @@ export const clientProjects = [
     company: "Carbex Lab",
     service: "E-commerce Design · Shopify",
     link: "https://carbexlab.com",
+    figma: null,
   },
   {
     slug: "the-scent-of-nile",
@@ -150,6 +159,7 @@ export const clientProjects = [
     company: "The Scent of Nile",
     service: "E-commerce Design · Shopify",
     link: "https://praf53-gt.myshopify.com",
+    figma: null,
   },
   {
     slug: "cozy-club",
@@ -165,6 +175,7 @@ export const clientProjects = [
     company: "Cozy Club",
     service: "E-commerce Design · Shopify",
     link: "https://tuk4iu-f2.myshopify.com",
+    figma: null,
   },
   {
     slug: "sinavita",
@@ -180,6 +191,7 @@ export const clientProjects = [
     company: "Sinavita",
     service: "E-commerce Design · Shopify",
     link: "https://sinavita.com",
+    figma: "https://www.figma.com/design/t2balBeig9DF45Gs1afMnB/Sinavita---Kunal",
   },
   {
     slug: "clockwork-cyber",
@@ -195,6 +207,7 @@ export const clientProjects = [
     company: "Clockwork Cyber",
     service: "Website Design",
     link: "https://clockworkcyber.co.uk",
+    figma: "https://www.figma.com/design/yyUmIND09ecHodCKGNrHjs/Lima---Clockwork-Cyber",
   },
   {
     slug: "the-24-hour-limit",
@@ -210,6 +223,7 @@ export const clientProjects = [
     company: "The 24 Hour Limit",
     service: "E-commerce Design · Shopify",
     link: "https://the24thhour.com",
+    figma: "https://www.figma.com/design/eiem7qnxZzBc1J0IP9qvn6/Monatranter",
   },
   {
     slug: "living-morning-health",
@@ -225,6 +239,7 @@ export const clientProjects = [
     company: "Living Morning Health",
     service: "E-commerce Design · Shopify",
     link: "https://livinghealthmarket.com",
+    figma: "https://www.figma.com/design/IKigbOiTYiYovfsegYh5ei/Tchaneydc---Living-Health-Market",
   },
   {
     slug: "momming-with-migraine",
@@ -240,6 +255,7 @@ export const clientProjects = [
     company: "Momming with Migraine",
     service: "Website Design",
     link: "https://mommingwithmigraine.com",
+    figma: "https://www.figma.com/design/bgXk9QSeprdeLAMojCB2gV/Jen-Morrison---Momming-with-migraine",
   },
   {
     slug: "buckhound",
@@ -255,6 +271,7 @@ export const clientProjects = [
     company: "Buckhound",
     service: "E-commerce Design · Shopify",
     link: "https://buckhound.com",
+    figma: "https://www.figma.com/design/UsnL49OebjM42Qv5k9oJWp/Joseph-Carino---Buckhound",
   },
   {
     slug: "eastmonky",
@@ -270,6 +287,7 @@ export const clientProjects = [
     company: "EastMonky",
     service: "E-commerce Design · Shopify",
     link: "https://eastmonky.com",
+    figma: "https://www.figma.com/design/HsuxRPLBMV2M7ybzr2IdO0/East-Monkey",
   },
   {
     slug: "serenity",
@@ -285,6 +303,7 @@ export const clientProjects = [
     company: "Serenity",
     service: "E-commerce Design · Shopify",
     link: "https://serentimoda.com",
+    figma: "https://www.figma.com/design/rEtNtHn8hFTkRcOZHkYy33/Khang-Duong---Serenti",
   },
   {
     slug: "phoenix",
@@ -300,6 +319,7 @@ export const clientProjects = [
     company: "Phoenix",
     service: "E-commerce Design · Shopify",
     link: "https://www.phx.fitness",
+    figma: "https://www.figma.com/design/ZZoK2yRoHzVb3xWYtnoVzy/PHX---Fitness",
   },
   {
     slug: "nature-identity",
@@ -315,6 +335,7 @@ export const clientProjects = [
     company: "Nature Identity",
     service: "Website Design",
     link: "https://nature-identity.de/en",
+    figma: null,
   },
   {
     slug: "smart-doorbell",
@@ -330,6 +351,7 @@ export const clientProjects = [
     company: "Smart Doorbell",
     service: "E-commerce Design · Shopify",
     link: "https://pnuip1-ux.myshopify.com",
+    figma: "https://www.figma.com/design/YOxwIbykkfSiyaoqJBNMdp/Smart-Doorbell",
   },
   {
     slug: "nourish-nest",
@@ -345,6 +367,7 @@ export const clientProjects = [
     company: "Nourish Nest",
     service: "Product Design · Web App",
     link: "https://nourishnest.app",
+    figma: "https://www.figma.com/design/822wdX8gGNpnGunDBCC7zC/Nourish-Nest",
   },
   {
     slug: "bart-v-dam",
@@ -360,6 +383,7 @@ export const clientProjects = [
     company: "Bart v Dam",
     service: "Website Design",
     link: "https://www.veo.fit",
+    figma: "https://www.figma.com/design/Zp1JFRdsQWSFKBu5t0lU2Z/Veo-Fit",
   },
   {
     slug: "jensen-manufacturing",
@@ -375,6 +399,7 @@ export const clientProjects = [
     company: "Jensen Manufacturing",
     service: "Website Design",
     link: "https://jensenmanufacturing.net",
+    figma: "https://www.figma.com/design/6uWKzdw4QKKG1RQmBa2jwx/Jensen-manufacturing---cjensen",
   },
   {
     slug: "peach-pebble",
@@ -390,6 +415,7 @@ export const clientProjects = [
     company: "Peach & Pebble",
     service: "E-commerce Design · Shopify",
     link: "https://peachandpebble.store",
+    figma: "https://www.figma.com/design/TmkPpVcxEtFA1jSOmYG72I/Peach---Pebble",
   },
   {
     slug: "betty",
@@ -405,6 +431,7 @@ export const clientProjects = [
     company: "Betty",
     service: "E-commerce Design · Shopify",
     link: "https://betterbetty.com",
+    figma: "https://www.figma.com/design/3bDx9acFW9Hbp9MbsG6vJL/Betty---Geert-Pelsma",
   },
   {
     slug: "zokk-rings",
@@ -420,6 +447,7 @@ export const clientProjects = [
     company: "Zokk Rings",
     service: "E-commerce Design · Shopify",
     link: "https://zokkrings.co.nz",
+    figma: "https://www.figma.com/design/Fvq6NyTS5NxSUm7yrQDEUd/Zokk-rings---Neel",
   },
   {
     slug: "lil-croptops",
@@ -435,6 +463,7 @@ export const clientProjects = [
     company: "Lil Croptops",
     service: "E-commerce Design · Shopify",
     link: "https://lilcroptops.com",
+    figma: "https://www.figma.com/design/6g7qqHvkWStXbD42M2VTJ5/Lil-Croptops---Ashley",
   },
   {
     slug: "adaptafy",
@@ -450,6 +479,7 @@ export const clientProjects = [
     company: "Adaptafy",
     service: "E-commerce Design · Shopify",
     link: "https://adaptafy.com",
+    figma: "https://www.figma.com/design/0ZSPJuX20KBYJGnIU11xUs/Adaptafy---geoffreyclackey",
   },
   {
     slug: "pursuit-caravans",
@@ -465,6 +495,7 @@ export const clientProjects = [
     company: "Pursuit Caravans",
     service: "E-commerce Design · Shopify",
     link: "https://pursuitcaravans.co.nz",
+    figma: "https://www.figma.com/design/2pBj4i8h52EDh2HtQzo9md/Pursuit-Caravans---Lukeambrose",
   },
   {
     slug: "house-favors",
@@ -480,6 +511,7 @@ export const clientProjects = [
     company: "House Favors",
     service: "E-commerce Design · Shopify",
     link: "https://www.housefavors.com",
+    figma: null,
   },
   {
     slug: "marrymill",
@@ -495,6 +527,7 @@ export const clientProjects = [
     company: "MarryMill",
     service: "E-commerce Design · Shopify",
     link: "https://marymill.amsterdam",
+    figma: "https://www.figma.com/design/PXE1JQc0DyWoRDfk79fzdA/Marry-Mill---Kariem",
   },
   {
     slug: "lobo-footwear",
@@ -510,6 +543,7 @@ export const clientProjects = [
     company: "Lobo Footwear",
     service: "E-commerce Design · Shopify",
     link: "https://www.lobofootwear.com",
+    figma: "https://www.figma.com/design/JXehnaB3qVGJzqUr3bTp8G/Lobo-Footwear",
   },
   {
     slug: "attoux",
@@ -525,6 +559,7 @@ export const clientProjects = [
     company: "ATTOUX",
     service: "E-commerce Design · Shopify",
     link: "https://attoux.com",
+    figma: "https://www.figma.com/design/2iEt0clSGMIiyHN6r6qvMx/ATTOUX---Tamilamp",
   },
   {
     slug: "sarasin",
@@ -540,6 +575,7 @@ export const clientProjects = [
     company: "Sarasin",
     service: "E-commerce Design · Shopify",
     link: "https://www.sarasin.shop",
+    figma: "https://www.figma.com/design/4bfik7c0UoRH24cfdhtyQX/Sarasin",
   },
   {
     slug: "lumaniq",
@@ -555,6 +591,7 @@ export const clientProjects = [
     company: "Lumaniq",
     service: "E-commerce Design · Shopify",
     link: "https://www.lumaniqshop.com",
+    figma: "https://www.figma.com/design/WLwzrxhPGaCegyPjmQCdqm/Lumaniq-Sleep---AaronCropper",
   },
   {
     slug: "yousif",
@@ -570,6 +607,7 @@ export const clientProjects = [
     company: "Yousif",
     service: "E-commerce Design · Shopify",
     link: "https://forsaken-labs.myshopify.com",
+    figma: "https://www.figma.com/design/StMRvhg2wi9iwmX1NGAjPy/Forsaken-Labs---Yousif",
   },
   {
     slug: "palmas",
@@ -585,6 +623,7 @@ export const clientProjects = [
     company: "Palmas",
     service: "E-commerce Design · Shopify",
     link: "https://palmaslittleboutique.com",
+    figma: "https://www.figma.com/design/IV2xtsX5hqEeufw061WYnt/PALMAS",
   },
   {
     slug: "self-shapewear",
@@ -600,6 +639,7 @@ export const clientProjects = [
     company: "Self Shapewear",
     service: "E-commerce Design · Shopify",
     link: "https://selfshapewear.com",
+    figma: "https://www.figma.com/design/cTS58padc02Umty38gnphK/Self---Shapewear",
   },
   {
     slug: "mystery-retro-club",
@@ -615,6 +655,7 @@ export const clientProjects = [
     company: "Mystery Retro Club",
     service: "E-commerce Design · Shopify",
     link: "https://mysteryretroclub.com",
+    figma: null,
   },
   {
     slug: "orthease",
@@ -630,6 +671,7 @@ export const clientProjects = [
     company: "Orthease",
     service: "E-commerce Design · Shopify",
     link: "https://orthease.co.za",
+    figma: null,
   },
   {
     slug: "noel",
@@ -645,6 +687,7 @@ export const clientProjects = [
     company: "Noel",
     service: "E-commerce Design · Shopify",
     link: "https://www.kigazauber.com",
+    figma: null,
   },
   {
     slug: "ergonivo",
@@ -660,6 +703,7 @@ export const clientProjects = [
     company: "Ergonivo",
     service: "E-commerce Design · Shopify",
     link: "https://ergonivo.nl",
+    figma: null,
   },
   {
     slug: "melabody",
@@ -675,6 +719,7 @@ export const clientProjects = [
     company: "Melabody",
     service: "E-commerce Design · Shopify",
     link: "https://melabody.shop",
+    figma: null,
   },
   {
     slug: "secret-of-essence",
@@ -690,6 +735,7 @@ export const clientProjects = [
     company: "Secret of Essence",
     service: "E-commerce Design · Shopify",
     link: "https://secretofessence.com",
+    figma: null,
   },
   {
     slug: "stray-dog-clothing",
@@ -705,6 +751,7 @@ export const clientProjects = [
     company: "Stray Dog Clothing",
     service: "Storefront Design · Development",
     link: "https://stray-dog-preview.vercel.app",
+    figma: null,
   },
   {
     slug: "ebbana",
@@ -720,5 +767,6 @@ export const clientProjects = [
     company: "Ebbana",
     service: "E-commerce Design · Shopify",
     link: "https://ebbana.de/en",
+    figma: null,
   },
 ];

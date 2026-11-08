@@ -739,6 +739,7 @@ footer { padding: 56px 0 44px; }
 .detail-left h1 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.18; letter-spacing: -0.02em; }
 .detail-left .dsub { margin-top: 22px; color: var(--muted-2); font-size: 15px; line-height: 1.8; max-width: 480px; }
 .detail-left .dsub + .dsub { margin-top: 14px; }
+.detail-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .detail-left .btn { margin-top: 34px; text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; padding: 15px 26px; }
 .detail-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-top: 40px; }
 .detail-meta .m b { display: block; font-family: var(--font-alt); font-size: 13px; font-weight: 500; color: var(--muted-2); margin-bottom: 8px; }

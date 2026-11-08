@@ -27,9 +27,10 @@ export default function ProjectDetail() {
                   <p className="dsub">{para}</p>
                 </Reveal>
               ))}
-              {project.link && (
-                <Reveal delay={240}>
-                  <Btn href={project.link} className="ghost">Open Project ↗</Btn>
+              {(project.link || project.figma) && (
+                <Reveal delay={240} className="detail-actions">
+                  {project.link && <Btn href={project.link}>View Live Site ↗</Btn>}
+                  {project.figma && <Btn href={project.figma} className="ghost">View Figma File ↗</Btn>}
                 </Reveal>
               )}
               <Reveal delay={300} className="detail-meta">
