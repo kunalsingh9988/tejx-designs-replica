@@ -329,7 +329,8 @@ h1, h2, h3, .font-display {
   margin-top: 64px;
   padding-bottom: 76px;
 }
-.hero-more { position: absolute; left: 50%; bottom: 38px; transform: translateX(-50%); padding: 0; display: flex; justify-content: center; }
+.hero-more { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: 34px; padding-bottom: 54px; }
+.hero-more .btn { margin-top: 0; }
 
 /* ---------- project card ---------- */
 
@@ -880,7 +881,7 @@ footer { padding: 56px 0 44px; }
   .hero-grid .pcard { padding: 24px; }
   .hero-grid .pcard .pcard-img { aspect-ratio: 274/221 !important; }
   .hero-grid .pcard .go { left: 30px; bottom: 30px; width: 44px; height: 44px; }
-  .hero-more { position: static; transform: none; margin-top: 14px; }
+  .hero-more { margin-top: 14px; padding-bottom: 30px; }
   .about-grid, .svc-grid, .proj-grid, .svc-pair { grid-template-columns: 1fr; }
   .svc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .steps { grid-template-columns: 1fr; }
