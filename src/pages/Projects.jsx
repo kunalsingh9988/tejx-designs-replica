@@ -52,9 +52,13 @@ export default function Projects() {
               </Reveal>
             ))}
           </div>
-          {remaining > 0 && (
+          {remaining > 0 ? (
             <Reveal className="load-more">
               <button className="btn ghost" onClick={() => setVisible((v) => v + BATCH)}>Load More</button>
+            </Reveal>
+          ) : (
+            <Reveal className="load-more end-note">
+              <p>That's all {filtered.length} — every project designed, managed &amp; shipped end-to-end. The next one could be yours.</p>
             </Reveal>
           )}
           <div className="chev" aria-hidden="true"><img src="/assets/ic-chev.svg" alt="" /></div>
