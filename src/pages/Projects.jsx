@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Pill, Reveal, ProjectCard } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
-import { projects, extraProjects } from "../data.js";
+import { projects } from "../data.js";
+import { clientProjects } from "../clientProjects.js";
+
+const BATCH = 12;
 
 export default function Projects() {
-  const [more, setMore] = useState(false);
+  const [visible, setVisible] = useState(BATCH);
+  const remaining = clientProjects.length - visible;
   return (
     <>
       <section className="panel section-pad" style={{ marginTop: 0 }}>
@@ -23,16 +27,15 @@ export default function Projects() {
                 <ProjectCard p={p} ratio="548/362" eager={i < 2} />
               </Reveal>
             ))}
-            {more &&
-              extraProjects.map((p, i) => (
-                <Reveal key={p.slug} delay={(i % 2) * 90}>
-                  <ProjectCard p={p} ratio="548/362" />
-                </Reveal>
-              ))}
+            {clientProjects.slice(0, visible).map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 2) * 90}>
+                <ProjectCard p={p} ratio="548/362" />
+              </Reveal>
+            ))}
           </div>
-          {!more && (
+          {remaining > 0 && (
             <Reveal className="load-more">
-              <button className="btn ghost" onClick={() => setMore(true)}>Load More</button>
+              <button className="btn ghost" onClick={() => setVisible((v) => v + BATCH)}>Load More</button>
             </Reveal>
           )}
           <div className="chev" aria-hidden="true"><img src="/assets/ic-chev.svg" alt="" /></div>

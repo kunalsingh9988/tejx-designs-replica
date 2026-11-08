@@ -3,10 +3,14 @@ import { Navigate, useParams } from "react-router-dom";
 import { Btn, Reveal, ProjectCard } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 import { projects, extraProjects } from "../data.js";
+import { clientProjects } from "../clientProjects.js";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
-  const project = useMemo(() => [...projects, ...extraProjects].find((p) => p.slug === slug), [slug]);
+  const project = useMemo(
+    () => [...projects, ...extraProjects, ...clientProjects].find((p) => p.slug === slug),
+    [slug]
+  );
   if (!project) return <Navigate to="/projects" replace />;
 
   const recent = projects.filter((p) => p.slug !== slug).slice(0, 4);
