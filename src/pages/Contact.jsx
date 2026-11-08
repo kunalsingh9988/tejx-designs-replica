@@ -2,10 +2,21 @@ import { useState } from "react";
 import { Pill, Btn, Reveal } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 
+const TO_EMAIL = "kusing51@gmail.com";
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const submit = (e) => {
     e.preventDefault();
+    const f = new FormData(e.target);
+    const subject = `Portfolio enquiry — ${f.get("name")}`;
+    const lines = [`Name: ${f.get("name")}`, `Email: ${f.get("email")}`];
+    if (f.get("number")) lines.push(`Number: ${f.get("number")}`);
+    if (f.get("website")) lines.push(`Website: ${f.get("website")}`);
+    if (f.get("budget")) lines.push(`Budget: ${f.get("budget")}`);
+    lines.push("", f.get("message"));
+    const body = lines.join("\n");
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
     e.target.reset();
   };
@@ -70,7 +81,7 @@ export default function Contact() {
               <textarea id="cf-msg" name="message" placeholder="Your Message" required />
             </div>
             <button type="submit" className="send">Send Message</button>
-            {sent && <p className="form-ok" role="status">Thanks — your message was noted. I'll get back to you soon.</p>}
+            {sent && <p className="form-ok" role="status">Thanks — your mail app should have opened with the details filled in. If it didn't, email me directly at {TO_EMAIL}.</p>}
           </Reveal>
         </div>
       </section>
