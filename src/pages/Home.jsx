@@ -23,6 +23,13 @@ function Hero() {
           <source src="/assets/hero-bg.mp4" type="video/mp4" />
         </video>
       </div>
+      <div className="hero-stars" aria-hidden="true">
+        <span className="star s1" />
+        <span className="star s2" />
+        <span className="star s3" />
+        <span className="star s4" />
+        <span className="star s5" />
+      </div>
       <div className="hero-quotes" aria-hidden="true">
         <div className="quote-card q1">
           {heroQuotes[0].q}
