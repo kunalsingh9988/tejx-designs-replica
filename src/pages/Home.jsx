@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Pill, Btn, Reveal, ArrowCircle, ProjectCard, SectionHead, SocialIcon } from "../components/ui.jsx";
+import { Pill, Btn, BtnIcon, Reveal, ArrowCircle, ProjectCard, SectionHead, SocialIcon } from "../components/ui.jsx";
 import { Cta } from "../components/Footer.jsx";
 import {
   projects, steps, services, tagRows, whyPairs, brands, faqs, skills, xp, socials,
@@ -62,7 +62,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={340} className="hero-actions">
           <Btn to="/projects">See All Projects</Btn>
-          <Btn href="/assets/resume.pdf" className="ghost">Resume ↓</Btn>
+          <Btn href="/assets/resume.pdf" className="ghost">Resume <BtnIcon name="download" /></Btn>
         </Reveal>
         <div className="hero-grid">
           {cards.map((p, i) => (
